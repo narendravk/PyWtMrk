@@ -76,34 +76,34 @@ def mark():
 window=Tk()
 s_width=window.winfo_screenwidth()
 s_height=window.winfo_screenheight()
-x1=s_width//2-450//2
+x1=s_width//2-750//2
 y1=s_height//2-750//2
-window.geometry('{}x{}+{}+{}'.format(450,750,x1,y1))
+window.geometry('{}x{}+{}+{}'.format(750,750,x1,y1))
 window.title("PyWtMrk")
 window.configure(pady=10,padx=10,bg="skyblue")
 canvas=Canvas(width=225,height=225,bg="skyblue",highlightthickness=0)
 logo_img=PhotoImage(file='logo.png',height=200,width=200)
 canvas.create_image(125,100,image=logo_img)
-canvas.grid(column=0,row=1,padx=10,pady=10,columnspan=2)
+canvas.grid(column=1,row=1,padx=10,pady=10,columnspan=2)
 
 title_label=Label(text="PyWtMrk",font=("Tahoma",30,"bold"),foreground="blue",justify="center",bg="skyblue")
-title_label.grid(column=0,row=0,padx=10,pady=10,columnspan=2)
+title_label.grid(column=1,row=0,padx=10,pady=10,columnspan=2)
 
-label_1=Label(text="Select the image file:",padx=10,pady=10,font=("Tahoma",14,"normal"),bg="skyblue")
+label_1=Label(text="Select the image file:",font=("Tahoma",14,"normal"),bg="skyblue")
 label_1.grid(column=0,row=2,padx=10,pady=10)
 
-file_select=Button(text="Select File",command=select_file,padx=10,pady=10,font=("Tahoma",12,"bold"),bg="grey")
-file_select.grid(column=1,row=2,padx=10,pady=10)
+file_select=Button(text="Select File",command=select_file,font=("Tahoma",12,"bold"),bg="grey")
+file_select.grid(column=2,row=2,padx=10,pady=10)
 
 label_2=Label(text="filepath",padx=10,pady=10,font=("Tahoma",8,"normal"),bg="skyblue")
-label_2.grid(column=0,row=3,padx=10,pady=10,columnspan=2)
+label_2.grid(column=1,row=3,padx=10,pady=10,columnspan=2)
 
 watermark=Entry(font=("Tahoma",14,"bold"),width=12,bg="white",)
 watermark.insert(0,"Write your text here")
 watermark.grid(column=0,row=4,padx=10,pady=10)
 
-file_select=Button(text="Mark",command=mark,padx=10,pady=10,font=("Tahoma",12,"bold"),bg="grey")
-file_select.grid(column=1,row=4,padx=10,pady=10)
+file_select=Button(text="Mark",command=mark,font=("Tahoma",12,"bold"),bg="grey")
+file_select.grid(column=2,row=4,padx=10,pady=10)
 
 #define checkbox variables
 tr=IntVar()
@@ -111,15 +111,15 @@ tl=IntVar()
 center=IntVar()
 br=IntVar()
 bl=IntVar()
-top_right=Checkbutton(text="Top Right",variable=tr,justify="left",padx=5,pady=5).grid(column=0,row=5)
-top_left=Checkbutton(text="Top Right",variable=tl,justify="left",padx=5,pady=5).grid(column=1,row=5)
-botton_right=Checkbutton(text="Bottom Right",variable=br,justify="left",padx=5,pady=5).grid(column=0,row=6)
-bottom_left=Checkbutton(text="Bottom Left",variable=bl,justify="left",padx=5,pady=5).grid(column=1,row=6)
-center_=Checkbutton(text="Center",variable=center,justify="left",padx=5,pady=5).grid(column=0,row=7)
+top_right=Checkbutton(text="Top Right",variable=tr,justify="left").grid(column=0,row=5,padx=5,pady=5)
+top_left=Checkbutton(text="Top Right",variable=tl,justify="left").grid(column=1,row=5,padx=5,pady=5)
+botton_right=Checkbutton(text="Bottom Right",variable=br,justify="left").grid(column=2,row=5,padx=5,pady=5)
+bottom_left=Checkbutton(text="Bottom Left",variable=bl,justify="left").grid(column=0,row=6,padx=5,pady=5)
+center_=Checkbutton(text="Center",variable=center,justify="left").grid(column=1,row=6,padx=5,pady=5)
 
 
 alpha_value=DoubleVar()
-slider=Scale(label="Alpha Channel",from_=0, to=255,variable=alpha_value,orient="horizontal").grid(column=1,row=7)
+slider=Scale(label="Alpha Channel",from_=0, to=255,variable=alpha_value,orient="horizontal").grid(column=2,row=6,padx=5,pady=5)
 title_label=Label(text="Created by Narendra Kashikar\nVisit narendrakashikar.life for more projects",font=("Tahoma",8,"bold"),foreground="blue",justify="center",bg="skyblue")
-title_label.grid(column=0,row=9,padx=10,pady=10,columnspan=2)
+title_label.grid(column=1,row=8,padx=10,pady=10,columnspan=2)
 window.mainloop()
